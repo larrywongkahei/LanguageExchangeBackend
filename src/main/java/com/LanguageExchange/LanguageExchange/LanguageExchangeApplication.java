@@ -11,7 +11,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.HashMap;
 
-@SpringBootApplication
+@SpringBootApplication(exclude = {
+		org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration.class}
+)
 public class LanguageExchangeApplication implements ApplicationRunner {
 
 	@Autowired
@@ -26,5 +28,6 @@ public class LanguageExchangeApplication implements ApplicationRunner {
 		HashMap hashmap = new HashMap<String, LanguageLevel>();
 		User user = new User("fasdf", "fasefa", "fasef", "afesf", "faesfa", "fasef", "faefs", hashmap);
 		userRepository.save(user);
+		userRepository.insert(user);
 	}
 }
