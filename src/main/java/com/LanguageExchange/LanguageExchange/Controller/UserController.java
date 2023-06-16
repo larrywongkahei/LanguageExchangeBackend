@@ -72,8 +72,6 @@ public class UserController {
 
     @PostMapping("")
     public ResponseEntity<List<User>> createUser(@RequestBody User user){
-        HashMap hashmap = new HashMap<String, LanguageLevel>();
-        hashmap.put("larry", LanguageLevel.BEGINNER);
         while (true){
             String newId = new ObjectId().toString();
             if(userRepository.findByid(newId).isEmpty()){
@@ -83,5 +81,21 @@ public class UserController {
         }
         userRepository.save(user);
         return new ResponseEntity<>(userRepository.findAll(), HttpStatus.OK);
+    }
+
+    @PutMapping("{id}")
+    public ResponseEntity<User> updateUserById(@PathVariable String id, @RequestBody User user){
+        User userToUpdate = userRepository.findByid(id).get(0);
+        userToUpdate.setId(user.getId());
+        userToUpdate.setEmail(user.getEmail());
+        userToUpdate.setGender(user.getGender());
+        userToUpdate.setFirstName(user.getFirstName());
+        userToUpdate.setLastName(user.getLastName());
+        userToUpdate.setCountryOfResidence(user.getCountryOfResidence());
+        userToUpdate.setDateOfBirth(user.getDateOfBirth());
+        userToUpdate.setLearningLanguage(user.getLearningLanguage());
+        userToUpdate.setMotherTongue(user.getMotherTongue());
+        userRepository.save(userToUpdate);
+        return new ResponseEntity<>(userToUpdate, HttpStatus.OK);
     }
 }
