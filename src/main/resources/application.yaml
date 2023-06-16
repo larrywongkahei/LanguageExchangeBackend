@@ -1,5 +1,0 @@
-spring:
-data:
-mongodb:
-uri: mongodb+srv://makemak123:makecak123@java.xhpgu3g.mongodb.net/
-database: Java
