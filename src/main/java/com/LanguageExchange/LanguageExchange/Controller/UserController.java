@@ -18,10 +18,6 @@ public class UserController {
 
     @GetMapping("")
     public ResponseEntity<User> getAll(){
-        HashMap themap = new HashMap<String, LanguageLevel>();
-        themap.put("Larry", LanguageLevel.BEGINNER);
-        User newuser = new User("fasef", "fasef", "fasef", "fasef", "fasef", "fasef", "fasef", themap);
-        System.out.println(newuser);
         return new ResponseEntity<>(newuser, HttpStatus.OK);
     }
 }
