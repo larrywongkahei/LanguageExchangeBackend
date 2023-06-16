@@ -26,16 +26,5 @@ public class LanguageExchangeApplication implements ApplicationRunner {
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		userRepository.deleteAll();
-		HashMap hashmap = new HashMap<String, LanguageLevel>();
-		hashmap.put("larry", LanguageLevel.BEGINNER);
-		User user = new User("fasdf", "larry", "fasef", "afesf", "faesfa", "fasef", "faefs", hashmap);
-		while (true){
-			String newId = new ObjectId().toString();
-			if(userRepository.findByid(newId).isEmpty()){
-				user.setId(newId);
-				break;
-			}
-		}
-		userRepository.save(user);
 	}
 }

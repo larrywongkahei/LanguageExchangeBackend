@@ -3,14 +3,12 @@ package com.LanguageExchange.LanguageExchange.Controller;
 import com.LanguageExchange.LanguageExchange.Model.LanguageLevel;
 import com.LanguageExchange.LanguageExchange.Model.User;
 import com.LanguageExchange.LanguageExchange.Repositories.UserRepository;
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.sql.Array;
 import java.util.*;
@@ -70,5 +68,20 @@ public class UserController {
 //                .filter(each -> paramsHashmap.get(each) != null)
 //                .collect(Collectors.joining());
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @PostMapping("")
+    public ResponseEntity<List<User>> createUser(@RequestBody User user){
+        HashMap hashmap = new HashMap<String, LanguageLevel>();
+        hashmap.put("larry", LanguageLevel.BEGINNER);
+        while (true){
+            String newId = new ObjectId().toString();
+            if(userRepository.findByid(newId).isEmpty()){
+                user.setId(newId);
+                break;
+            }
+        }
+        userRepository.save(user);
+        return new ResponseEntity<>(userRepository.findAll(), HttpStatus.OK);
     }
 }
