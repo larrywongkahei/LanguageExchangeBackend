@@ -98,4 +98,11 @@ public class UserController {
         userRepository.save(userToUpdate);
         return new ResponseEntity<>(userToUpdate, HttpStatus.OK);
     }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<List<User>> deleteUserById(@PathVariable String id){
+        User userToDelete = userRepository.findByid(id).get(0);
+        userRepository.delete(userToDelete);
+        return new ResponseEntity<>(userRepository.findAll(), HttpStatus.OK);
+    }
 }
