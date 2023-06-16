@@ -22,6 +22,7 @@ public class LanguageExchangeApplication implements ApplicationRunner {
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
+		userRepository.deleteAll();
 		HashMap hashmap = new HashMap<String, LanguageLevel>();
 		User user = new User("fasdf", "fasefa", "fasef", "afesf", "faesfa", "fasef", "faefs", hashmap);
 		userRepository.save(user);
