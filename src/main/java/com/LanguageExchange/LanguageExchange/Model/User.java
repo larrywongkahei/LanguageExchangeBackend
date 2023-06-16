@@ -14,7 +14,7 @@ public class User {
 
     private String lastName;
 
-    private String dataOfBirth;
+    private String dateOfBirth;
 
     private String gender;
 
@@ -24,11 +24,11 @@ public class User {
 
     private HashMap<String, LanguageLevel> learningLanguage;
 
-    public User(String email, String firstName, String lastName, String dataOfBirth, String gender, String countryOfResidence, String motherTongue, HashMap<String, LanguageLevel> learningLanguage) {
+    public User(String email, String firstName, String lastName, String dateOfBirth, String gender, String countryOfResidence, String motherTongue, HashMap<String, LanguageLevel> learningLanguage) {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.dataOfBirth = dataOfBirth;
+        this.dateOfBirth = dateOfBirth;
         this.gender = gender;
         this.countryOfResidence = countryOfResidence;
         this.motherTongue = motherTongue;
@@ -60,11 +60,11 @@ public class User {
     }
 
     public String getDataOfBirth() {
-        return dataOfBirth;
+        return dateOfBirth;
     }
 
     public void setDataOfBirth(String dataOfBirth) {
-        this.dataOfBirth = dataOfBirth;
+        this.dateOfBirth = dataOfBirth;
     }
 
     public String getGender() {
