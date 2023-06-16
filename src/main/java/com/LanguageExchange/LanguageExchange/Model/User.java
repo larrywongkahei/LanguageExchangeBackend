@@ -1,5 +1,9 @@
 package com.LanguageExchange.LanguageExchange.Model;
 
+import com.LanguageExchange.LanguageExchange.Repositories.UserRepository;
+import org.bson.types.ObjectId;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Base64;
@@ -9,6 +13,11 @@ import java.util.HashMap;
 @Document("User")
 public class User {
 
+    @Autowired
+    UserRepository userRepository;
+
+    @Id
+    private String id;
     private String email;
     private String firstName;
 
@@ -35,6 +44,22 @@ public class User {
         this.learningLanguage = learningLanguage;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -57,14 +82,6 @@ public class User {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public String getDataOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setDataOfBirth(String dataOfBirth) {
-        this.dateOfBirth = dataOfBirth;
     }
 
     public String getGender() {
