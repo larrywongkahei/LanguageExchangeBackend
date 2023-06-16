@@ -3,6 +3,7 @@ package com.LanguageExchange.LanguageExchange;
 import com.LanguageExchange.LanguageExchange.Model.LanguageLevel;
 import com.LanguageExchange.LanguageExchange.Model.User;
 import com.LanguageExchange.LanguageExchange.Repositories.UserRepository;
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -28,6 +29,13 @@ public class LanguageExchangeApplication implements ApplicationRunner {
 		HashMap hashmap = new HashMap<String, LanguageLevel>();
 		hashmap.put("larry", LanguageLevel.BEGINNER);
 		User user = new User("fasdf", "larry", "fasef", "afesf", "faesfa", "fasef", "faefs", hashmap);
+		while (true){
+			String newId = new ObjectId().toString();
+			if(userRepository.findByid(newId).isEmpty()){
+				user.setId(newId);
+				break;
+			}
+		}
 		userRepository.save(user);
 	}
 }
