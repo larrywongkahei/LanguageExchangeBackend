@@ -1,6 +1,7 @@
 package com.LanguageExchange.LanguageExchange.Model;
 
 import com.LanguageExchange.LanguageExchange.Repositories.UserRepository;
+import org.bson.types.Binary;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Id;
@@ -20,7 +21,7 @@ public class User {
     @Id
     private String id;
 
-    public byte[] profilePicture;
+    public Binary profilePicture;
     private String email;
     private String firstName;
 
@@ -52,11 +53,11 @@ public class User {
 
     }
 
-    public byte[] getProfilePicture() {
+    public Binary getProfilePicture() {
         return profilePicture;
     }
 
-    public void setProfilePicture(byte[] profilePicture) {
+    public void setProfilePicture(Binary profilePicture) {
         this.profilePicture = profilePicture;
     }
 
