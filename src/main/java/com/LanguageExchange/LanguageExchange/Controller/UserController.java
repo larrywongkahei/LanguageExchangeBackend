@@ -95,6 +95,7 @@ public class UserController {
         userToUpdate.setDateOfBirth(user.getDateOfBirth());
         userToUpdate.setLearningLanguage(user.getLearningLanguage());
         userToUpdate.setMotherTongue(user.getMotherTongue());
+        userToUpdate.setBio(user.getBio());
         userRepository.save(userToUpdate);
         return new ResponseEntity<>(userToUpdate, HttpStatus.OK);
     }

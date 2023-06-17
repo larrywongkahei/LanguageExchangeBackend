@@ -25,6 +25,8 @@ public class User {
 
     private String dateOfBirth;
 
+    private String bio;
+
     private String gender;
 
     private String countryOfResidence;
@@ -42,6 +44,15 @@ public class User {
         this.countryOfResidence = countryOfResidence;
         this.motherTongue = motherTongue;
         this.learningLanguage = learningLanguage;
+        this.bio = null;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
     }
 
     public String getId() {
