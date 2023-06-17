@@ -27,18 +27,6 @@ public class UserController {
     @Autowired
     UserRepository userRepository;
 
-    @PostMapping("/get")
-    public byte[] index(@RequestBody String image){
-        String newString = image.split(",")[1];
-        System.out.println(newString);
-        byte[] decode = Base64.getMimeDecoder().decode(newString);
-        System.out.println(newString);
-        for(byte e : decode){
-            System.out.println(e);
-        }
-        return decode;
-    }
-
     @GetMapping("")
     public ResponseEntity<List<User>> getAll(){
         return new ResponseEntity<>(userRepository.findAll(), HttpStatus.OK);
