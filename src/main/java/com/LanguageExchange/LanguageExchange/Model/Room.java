@@ -11,11 +11,13 @@ public class Room {
 
     @Id
     private String id;
-    private List<String> userIdList;
+    private String userOne;
+    private String userTwo;
     private HashMap<String, String> dateAndChatId;
 
-    public Room(List<String> userIdList, HashMap<String, String> dateAndChatId) {
-        this.userIdList = userIdList;
+    public Room(String userOne, String userTwo, HashMap<String, String> dateAndChatId) {
+        this.userOne = userOne;
+        this.userTwo = userTwo;
         this.dateAndChatId = dateAndChatId;
     }
 
@@ -27,12 +29,20 @@ public class Room {
         this.id = id;
     }
 
-    public List<String> getUserIdList() {
-        return userIdList;
+    public String getUserOne() {
+        return userOne;
     }
 
-    public void setUserIdList(List<String> userIdList) {
-        this.userIdList = userIdList;
+    public void setUserOne(String userOne) {
+        this.userOne = userOne;
+    }
+
+    public String getUserTwo() {
+        return userTwo;
+    }
+
+    public void setUserTwo(String userTwo) {
+        this.userTwo = userTwo;
     }
 
     public HashMap<String, String> getDateAndChatId() {

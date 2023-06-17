@@ -31,9 +31,9 @@ public class RoomsController {
     }
 
     @PostMapping("")
-    public ResponseEntity<Room> createChat(@RequestBody List<String> userIdList){
+    public ResponseEntity<Room> createChat(@RequestParam String userOne, @RequestParam String userTwo){
         LocalDateTime now = LocalDateTime.now();
-        Room newChat = new Room(userIdList, new HashMap<String, String>(Map.of(now.toString().substring(now.toString().indexOf("T") - 1)), new ));
+        Room newChat = new Room(userOne, userTwo, new HashMap<String, String>(Map.of("fsaef", "fasef")));
         while (true){
             String newId = new ObjectId().toString();
             if(chatsRepository.existsById(newId) == false) {
