@@ -3,6 +3,9 @@ package com.LanguageExchange.LanguageExchange.Controller;
 import com.LanguageExchange.LanguageExchange.Model.LanguageLevel;
 import com.LanguageExchange.LanguageExchange.Model.User;
 import com.LanguageExchange.LanguageExchange.Repositories.UserRepository;
+import org.bson.BsonBinary;
+import org.bson.BsonInt32;
+import org.bson.types.Binary;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
@@ -10,6 +13,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
 import java.sql.Array;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -21,6 +26,18 @@ public class UserController {
 
     @Autowired
     UserRepository userRepository;
+
+    @PostMapping("/get")
+    public byte[] index(@RequestBody String image){
+        String newString = image.split(",")[1];
+        System.out.println(newString);
+        byte[] decode = Base64.getMimeDecoder().decode(newString);
+        System.out.println(newString);
+        for(byte e : decode){
+            System.out.println(e);
+        }
+        return decode;
+    }
 
     @GetMapping("")
     public ResponseEntity<List<User>> getAll(){
@@ -96,6 +113,14 @@ public class UserController {
         userToUpdate.setLearningLanguage(user.getLearningLanguage());
         userToUpdate.setMotherTongue(user.getMotherTongue());
         userToUpdate.setBio(user.getBio());
+        userRepository.save(userToUpdate);
+        return new ResponseEntity<>(userToUpdate, HttpStatus.OK);
+    }
+
+    @PutMapping("updateprofile/{id}")
+    public ResponseEntity<User> updateUserProfilePicture(@PathVariable String id, @RequestBody String imageBase64){
+        User userToUpdate = userRepository.findByid(id).get(0);
+        userToUpdate.setProfilePicture(Base64.getMimeDecoder().decode(imageBase64.substring(imageBase64.indexOf(",") + 1)));
         userRepository.save(userToUpdate);
         return new ResponseEntity<>(userToUpdate, HttpStatus.OK);
     }

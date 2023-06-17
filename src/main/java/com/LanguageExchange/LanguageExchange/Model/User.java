@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.awt.*;
 import java.util.Base64;
 import java.util.Dictionary;
 import java.util.HashMap;
@@ -18,6 +19,8 @@ public class User {
 
     @Id
     private String id;
+
+    public byte[] profilePicture;
     private String email;
     private String firstName;
 
@@ -45,6 +48,16 @@ public class User {
         this.motherTongue = motherTongue;
         this.learningLanguage = learningLanguage;
         this.bio = null;
+        this.profilePicture = null;
+
+    }
+
+    public byte[] getProfilePicture() {
+        return profilePicture;
+    }
+
+    public void setProfilePicture(byte[] profilePicture) {
+        this.profilePicture = profilePicture;
     }
 
     public String getBio() {
