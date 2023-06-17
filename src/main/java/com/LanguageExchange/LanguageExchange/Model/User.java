@@ -20,23 +20,15 @@ public class User {
 
     @Id
     private String id;
-
     public Binary profilePicture;
     private String email;
     private String firstName;
-
     private String lastName;
-
     private String dateOfBirth;
-
     private String bio;
-
     private String gender;
-
     private String countryOfResidence;
-
     private String motherTongue;
-
     private HashMap<String, LanguageLevel> learningLanguage;
 
     public User(String email, String firstName, String lastName, String dateOfBirth, String gender, String countryOfResidence, String motherTongue, HashMap<String, LanguageLevel> learningLanguage) {
