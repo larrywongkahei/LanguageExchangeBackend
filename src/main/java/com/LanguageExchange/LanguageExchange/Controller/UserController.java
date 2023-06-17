@@ -79,7 +79,7 @@ public class UserController {
     public ResponseEntity<List<User>> createUser(@RequestBody User user){
         while (true){
             String newId = new ObjectId().toString();
-            if(userRepository.findByid(newId).isEmpty()){
+            if(userRepository.existsById(newId) == false){
                 user.setId(newId);
                 break;
             }
