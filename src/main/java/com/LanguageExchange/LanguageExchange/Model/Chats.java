@@ -13,6 +13,6 @@ public class Chats {
     private String userOneId;
     private String userTwoId;
     private List<Messages> messages;
-    
+
 
 }
