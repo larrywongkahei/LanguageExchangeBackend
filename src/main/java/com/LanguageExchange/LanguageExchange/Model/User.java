@@ -9,7 +9,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.Base64;
 import java.util.Dictionary;
 import java.util.HashMap;
-import java.util.List;
 
 @Document("User")
 public class User {
@@ -32,9 +31,9 @@ public class User {
 
     private String motherTongue;
 
-    private List<HashMap<String, LanguageLevel>> learningLanguage;
+    private HashMap<String, LanguageLevel> learningLanguage;
 
-    public User(String email, String firstName, String lastName, String dateOfBirth, String gender, String countryOfResidence, String motherTongue, List<HashMap<String, LanguageLevel>> learningLanguage) {
+    public User(String email, String firstName, String lastName, String dateOfBirth, String gender, String countryOfResidence, String motherTongue, HashMap<String, LanguageLevel> learningLanguage) {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -109,11 +108,11 @@ public class User {
         this.motherTongue = motherTongue;
     }
 
-    public List<HashMap<String, LanguageLevel>> getLearningLanguage() {
+    public HashMap<String, LanguageLevel> getLearningLanguage() {
         return learningLanguage;
     }
 
-    public void setLearningLanguage(List<HashMap<String, LanguageLevel>> learningLanguage) {
+    public void setLearningLanguage(HashMap<String, LanguageLevel> learningLanguage) {
         this.learningLanguage = learningLanguage;
     }
 }
