@@ -2,18 +2,19 @@ package com.LanguageExchange.LanguageExchange.Model;
 
 import org.bson.types.Binary;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 public class Messages {
 
     @Id
     private String id;
-    private String dateTime;
+    private String time;
     private String fromId;
     private String toId;
     private Binary textMessage;
     private Binary voiceMessage;
     private Binary imageMessage;
+
+
 
     public String getId() {
         return id;
@@ -23,12 +24,12 @@ public class Messages {
         this.id = id;
     }
 
-    public String getDateTime() {
-        return dateTime;
+    public String getTime() {
+        return time;
     }
 
-    public void setDateTime(String dateTime) {
-        this.dateTime = dateTime;
+    public void setTime(String time) {
+        this.time = time;
     }
 
     public String getFromId() {

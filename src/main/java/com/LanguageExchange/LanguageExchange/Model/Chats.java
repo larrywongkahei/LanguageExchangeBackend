@@ -12,11 +12,11 @@ public class Chats {
     @Id
     private String id;
     private List<String> userIdList;
-    private List<Messages> messages;
+    private HashMap<String, String> dateAndMessageId;
 
-    public Chats(List<String> userIdList, List<Messages> messages) {
+    public Chats(List<String> userIdList, HashMap<String, String> dateAndMessageId) {
         this.userIdList = userIdList;
-        this.messages = messages;
+        this.dateAndMessageId = dateAndMessageId;
     }
 
     public String getId() {
@@ -35,11 +35,11 @@ public class Chats {
         this.userIdList = userIdList;
     }
 
-    public List<Messages> getMessages() {
-        return messages;
+    public HashMap<String, String> getDateAndMessageId() {
+        return dateAndMessageId;
     }
 
-    public void setMessages(List<Messages> messages) {
-        this.messages = messages;
+    public void setDateAndMessageId(HashMap<String, String> dateAndMessageId) {
+        this.dateAndMessageId = dateAndMessageId;
     }
 }

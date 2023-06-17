@@ -9,8 +9,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("chats")
@@ -31,7 +34,8 @@ public class ChatsController {
 
     @PostMapping("")
     public ResponseEntity<Chats> createChat(@RequestBody List<String> userIdList){
-        Chats newChat = new Chats(userIdList, new ArrayList<Messages>());
+        LocalDateTime now = LocalDateTime.now();
+        Chats newChat = new Chats(userIdList, new HashMap<String, String>(Map.of(now.toString().substring(now.toString().indexOf("T") - 1)), new ));
         while (true){
             String newId = new ObjectId().toString();
             if(chatsRepository.existsById(newId) == false) {
