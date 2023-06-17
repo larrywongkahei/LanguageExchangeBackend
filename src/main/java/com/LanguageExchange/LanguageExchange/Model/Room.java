@@ -6,17 +6,17 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.HashMap;
 import java.util.List;
 
-@Document("Chats")
-public class Chats {
+@Document("Rooms")
+public class Room {
 
     @Id
     private String id;
     private List<String> userIdList;
-    private HashMap<String, String> dateAndRoomId;
+    private HashMap<String, String> dateAndChatId;
 
-    public Chats(List<String> userIdList, HashMap<String, String> dateAndRoomId) {
+    public Room(List<String> userIdList, HashMap<String, String> dateAndChatId) {
         this.userIdList = userIdList;
-        this.dateAndRoomId = dateAndRoomId;
+        this.dateAndChatId = dateAndChatId;
     }
 
     public String getId() {
@@ -35,11 +35,11 @@ public class Chats {
         this.userIdList = userIdList;
     }
 
-    public HashMap<String, String> getDateAndRoomId() {
-        return dateAndRoomId;
+    public HashMap<String, String> getDateAndChatId() {
+        return dateAndChatId;
     }
 
-    public void setDateAndRoomId(HashMap<String, String> dateAndRoomId) {
-        this.dateAndRoomId = dateAndRoomId;
+    public void setDateAndChatId(HashMap<String, String> dateAndChatId) {
+        this.dateAndChatId = dateAndChatId;
     }
 }
