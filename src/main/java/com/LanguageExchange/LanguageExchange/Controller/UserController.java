@@ -105,7 +105,7 @@ public class UserController {
         return new ResponseEntity<>(userToUpdate, HttpStatus.OK);
     }
 
-    @PutMapping("updateprofile/{id}")
+    @PutMapping("profilepicture/{id}")
     public ResponseEntity<User> updateUserProfilePicture(@PathVariable String id, @RequestBody String imageBase64){
         User userToUpdate = userRepository.findByid(id).get(0);
         userToUpdate.setProfilePicture(Base64.getMimeDecoder().decode(imageBase64.substring(imageBase64.indexOf(",") + 1)));
