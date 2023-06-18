@@ -76,4 +76,14 @@ public class RoomsController {
         roomsRepository.save(newRoom);
         return new ResponseEntity<>(newRoom, HttpStatus.OK);
     }
+
+    @PutMapping("{id}")
+    public ResponseEntity<Room> updateRoomDateAndChatIdHashMap(@PathVariable String id, @RequestBody String chatId){
+        LocalDateTime now = LocalDateTime.now();
+        Room room = roomsRepository.findByid(id);
+        HashMap<String, String> newRoomDateAndChatIdHashMap = room.getDateAndChatId();
+        newRoomDateAndChatIdHashMap.put(now.toString().split("T")[0], chatId);
+        room.setDateAndChatId(newRoomDateAndChatIdHashMap);
+        roomsRepository.save(room);
+    }
 }
