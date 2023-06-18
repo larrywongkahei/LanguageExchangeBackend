@@ -3,6 +3,7 @@ package com.LanguageExchange.LanguageExchange.Model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Document("Chats")
@@ -12,9 +13,9 @@ public class Chat {
     private String date;
     private List<Messages> messageList;
 
-    public Chat(String date, List<Messages> messageList) {
+    public Chat(String date) {
         this.date = date;
-        this.messageList = messageList;
+        this.messageList = new ArrayList<>();
     }
 
     public String getId() {
