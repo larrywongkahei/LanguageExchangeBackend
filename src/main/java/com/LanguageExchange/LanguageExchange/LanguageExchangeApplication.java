@@ -20,7 +20,7 @@ public class LanguageExchangeApplication implements ApplicationRunner {
 	RoomsRepository roomsRepository;
 
 	@Autowired
-	ChatsRepository chatsRepository
+	ChatsRepository chatsRepository;
 	public static void main(String[] args) {
 		SpringApplication.run(LanguageExchangeApplication.class, args);
 	}
