@@ -1,4 +1,7 @@
 package com.LanguageExchange.LanguageExchange.Repositories;
 
-public interface MessageRepository {
+import com.LanguageExchange.LanguageExchange.Model.Message;
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+public interface MessageRepository extends MongoRepository<Message, String> {
 }
