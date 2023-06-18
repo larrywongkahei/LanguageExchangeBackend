@@ -1,7 +1,6 @@
 package com.LanguageExchange.LanguageExchange.Controller;
 
 import com.LanguageExchange.LanguageExchange.Model.Chat;
-import com.LanguageExchange.LanguageExchange.Model.Messages;
 import com.LanguageExchange.LanguageExchange.Model.Room;
 import com.LanguageExchange.LanguageExchange.Model.User;
 import com.LanguageExchange.LanguageExchange.Repositories.ChatsRepository;
@@ -14,7 +13,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

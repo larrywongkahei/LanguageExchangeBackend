@@ -2,8 +2,10 @@ package com.LanguageExchange.LanguageExchange.Model;
 
 import org.bson.types.Binary;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-public class Messages {
+@Document("Messages")
+public class Message {
 
     @Id
     private String id;

@@ -11,7 +11,7 @@ public class Chat {
     @Id
     private String id;
     private String date;
-    private List<Messages> messageList;
+    private List<Message> messageList;
 
     public Chat(String date) {
         this.date = date;
@@ -34,11 +34,11 @@ public class Chat {
         this.date = date;
     }
 
-    public List<Messages> getMessageList() {
+    public List<Message> getMessageList() {
         return messageList;
     }
 
-    public void setMessageList(List<Messages> messageList) {
+    public void setMessageList(List<Message> messageList) {
         this.messageList = messageList;
     }
 }
