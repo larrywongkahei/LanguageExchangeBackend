@@ -13,9 +13,6 @@ import java.util.*;
 @Document("User")
 public class User {
 
-    @Autowired
-    UserRepository userRepository;
-
     @Id
     private String id;
     public Binary profilePicture;
