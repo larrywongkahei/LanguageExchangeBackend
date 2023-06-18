@@ -12,11 +12,18 @@ public class Message {
     private String time;
     private String fromId;
     private String toId;
-    private Binary textMessage;
-    private Binary voiceMessage;
-    private Binary imageMessage;
+    private String messageType;
 
+    private String messageBase64 = null;
+    private Binary message = null;
 
+    public Message(String id, String time, String fromId, String toId, String messageType) {
+        this.id = id;
+        this.time = time;
+        this.fromId = fromId;
+        this.toId = toId;
+        this.messageType = messageType;
+    }
 
     public String getId() {
         return id;
@@ -50,27 +57,27 @@ public class Message {
         this.toId = toId;
     }
 
-    public Binary getTextMessage() {
-        return textMessage;
+    public String getMessageType() {
+        return messageType;
     }
 
-    public void setTextMessage(Binary textMessage) {
-        this.textMessage = textMessage;
+    public void setMessageType(String messageType) {
+        this.messageType = messageType;
     }
 
-    public Binary getVoiceMessage() {
-        return voiceMessage;
+    public Binary getMessage() {
+        return message;
     }
 
-    public void setVoiceMessage(Binary voiceMessage) {
-        this.voiceMessage = voiceMessage;
+    public void setMessage(Binary message) {
+        this.message = message;
     }
 
-    public Binary getImageMessage() {
-        return imageMessage;
+    public String getMessageBase64() {
+        return messageBase64;
     }
 
-    public void setImageMessage(Binary imageMessage) {
-        this.imageMessage = imageMessage;
+    public void setMessageBase64(String messageBase64) {
+        this.messageBase64 = messageBase64;
     }
 }
