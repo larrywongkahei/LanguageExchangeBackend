@@ -31,17 +31,17 @@ public class RoomsController {
     UserRepository userRepository;
 
     @GetMapping("")
-    public ResponseEntity<List<Room>> getAllChats(){
+    public ResponseEntity<List<Room>> getAllRooms(){
         return new ResponseEntity<>(roomsRepository.findAll(), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Room> getChatById(@PathVariable String id){
+    public ResponseEntity<Room> getRoomById(@PathVariable String id){
         return new ResponseEntity<>(roomsRepository.findByid(id), HttpStatus.OK);
     }
 
     @PostMapping("")
-    public ResponseEntity<Room> createChat(@RequestParam String userOne, @RequestParam String userTwo){
+    public ResponseEntity<Room> createRoom(@RequestParam String userOne, @RequestParam String userTwo){
         LocalDateTime now = LocalDateTime.now();
         //        Create a new chat
         Chat newChat = new Chat(now.toString().split("T")[0]);
