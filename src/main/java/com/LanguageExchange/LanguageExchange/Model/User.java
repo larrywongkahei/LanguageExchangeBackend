@@ -129,6 +129,14 @@ public class User {
         return learningLanguage;
     }
 
+    public List<String> getRoomIdList() {
+        return roomIdList;
+    }
+
+    public void setRoomIdList(List<String> roomIdList) {
+        this.roomIdList = roomIdList;
+    }
+
     public void setLearningLanguage(HashMap<String, LanguageLevel> learningLanguage) {
         this.learningLanguage = learningLanguage;
     }

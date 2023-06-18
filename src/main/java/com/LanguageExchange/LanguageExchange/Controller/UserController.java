@@ -101,6 +101,7 @@ public class UserController {
         userToUpdate.setLearningLanguage(user.getLearningLanguage());
         userToUpdate.setMotherTongue(user.getMotherTongue());
         userToUpdate.setBio(user.getBio());
+        userToUpdate.setRoomIdList(user.getRoomIdList());
         userRepository.save(userToUpdate);
         return new ResponseEntity<>(userToUpdate, HttpStatus.OK);
     }
