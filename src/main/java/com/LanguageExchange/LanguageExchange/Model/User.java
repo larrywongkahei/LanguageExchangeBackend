@@ -7,10 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.awt.*;
-import java.util.Base64;
-import java.util.Dictionary;
-import java.util.HashMap;
+
+import java.util.*;
 
 @Document("User")
 public class User {
@@ -29,6 +27,7 @@ public class User {
     private String gender;
     private String countryOfResidence;
     private String motherTongue;
+    private List<String> roomIdList;
     private HashMap<String, LanguageLevel> learningLanguage;
 
     public User(String email, String firstName, String lastName, String dateOfBirth, String gender, String countryOfResidence, String motherTongue, HashMap<String, LanguageLevel> learningLanguage) {
@@ -42,6 +41,7 @@ public class User {
         this.learningLanguage = learningLanguage;
         this.bio = null;
         this.profilePicture = null;
+        this.roomIdList = new ArrayList<String>();
 
     }
 
