@@ -83,5 +83,6 @@ public class RoomsController {
         newRoomDateAndChatIdHashMap.put(now.toString().split("T")[0], chatId);
         room.setDateAndChatId(newRoomDateAndChatIdHashMap);
         roomsRepository.save(room);
+        return new ResponseEntity<>(room, HttpStatus.OK);
     }
 }
