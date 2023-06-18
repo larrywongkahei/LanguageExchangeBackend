@@ -1,5 +1,6 @@
 package com.LanguageExchange.LanguageExchange;
 
+import com.LanguageExchange.LanguageExchange.Repositories.ChatsRepository;
 import com.LanguageExchange.LanguageExchange.Repositories.RoomsRepository;
 import com.LanguageExchange.LanguageExchange.Repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,9 @@ public class LanguageExchangeApplication implements ApplicationRunner {
 	UserRepository userRepository;
 	@Autowired
 	RoomsRepository roomsRepository;
+
+	@Autowired
+	ChatsRepository chatsRepository
 	public static void main(String[] args) {
 		SpringApplication.run(LanguageExchangeApplication.class, args);
 	}
@@ -25,6 +29,8 @@ public class LanguageExchangeApplication implements ApplicationRunner {
 	public void run(ApplicationArguments args) throws Exception {
 		userRepository.deleteAll();
 		roomsRepository.deleteAll();
+		chatsRepository.deleteAll();
+
 
 	}
 }
