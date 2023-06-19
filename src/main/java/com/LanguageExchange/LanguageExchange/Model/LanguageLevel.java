@@ -4,6 +4,6 @@ public enum LanguageLevel {
     BEGINNER,
     ELEMENTARY,
     INTERMEDIATE,
-    SKILLED,
-    EXPERT
+    ADVANCED,
+    NATIVE
 }
